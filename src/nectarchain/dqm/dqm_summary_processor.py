@@ -13,6 +13,7 @@ import numpy as np
 from scipy.stats import norm
 from traitlets.config.loader import Config 
 from astropy.io import fits
+from astropy.table import Table
 
 # ctapipe modules
 from ctapipe import utils
