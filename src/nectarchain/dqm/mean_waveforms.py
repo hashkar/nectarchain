@@ -72,19 +72,19 @@ class MeanWaveForms_HighLowGain(dqm_summary):
 
         #ASSIGN RESUTLS TO DICT
         if (self.k==0):
-            self.MeanWaveForms_Results_Dict["WF-PHY-AVERAGE-HIGH-GAIN"]  = self.Mwf_average
+            #self.MeanWaveForms_Results_Dict["WF-PHY-AVERAGE-HIGH-GAIN"]  = self.Mwf_average
             self.MeanWaveForms_Results_Dict["WF-PHY-AVERAGE-CHAN-HIGH-GAIN"]  = self.Mwf_Mean_overChan
             if self.counter_ped > 0:
-                self.MeanWaveForms_Results_Dict["WF-PED-AVERAGE-HIGH-GAIN"] = self.Mwf_ped_average
+                #self.MeanWaveForms_Results_Dict["WF-PED-AVERAGE-HIGH-GAIN"] = self.Mwf_ped_average
                 self.MeanWaveForms_Results_Dict["WF-AVERAGE-PED-CHAN-HIGH-GAIN"]  = self.Mwf_ped_Mean_overChan
 
 
 
         if (self.k ==1):
-            self.MeanWaveForms_Results_Dict["WF-AVERAGE-LOW-GAIN"]  = self.Mwf_average
+            #self.MeanWaveForms_Results_Dict["WF-AVERAGE-LOW-GAIN"]  = self.Mwf_average
             self.MeanWaveForms_Results_Dict["WF-AVERAGE-CHAN-LOW-GAIN"]  = self.Mwf_Mean_overChan
             if self.counter_ped > 0:
-                self.MeanWaveForms_Results_Dict["WF-PHY-PED-AVERAGE-LOW-GAIN"] = self.Mwf_ped_average
+                #self.MeanWaveForms_Results_Dict["WF-PHY-PED-AVERAGE-LOW-GAIN"] = self.Mwf_ped_average
                 self.MeanWaveForms_Results_Dict["WF-PHY-AVERAGE-PED-CHAN-LOW-GAIN"]  = self.Mwf_ped_Mean_overChan
                 
 

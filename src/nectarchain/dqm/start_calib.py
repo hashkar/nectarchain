@@ -160,7 +160,7 @@ for p in processors:
 
 name = name #in order to allow to change the name easily
 p.WriteAllResults(ResPath, NESTED_DICT) #if we want to write all results in 1 pickle file we do this. 
-
+'''
 for p in processors:
     processor_figure_dict, processor_figure_name_dict  = p.PlotResults(name, FigPath)
 
@@ -173,7 +173,7 @@ for p in processors:
 plt.clf()
 plt.cla()
 plt.close()
-
+'''
 
 end = time.time()
 print("Processing time:", end-start)
