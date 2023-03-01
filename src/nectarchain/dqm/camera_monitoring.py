@@ -49,10 +49,10 @@ class CameraMonitoring(dqm_summary):
             
         except sqlite3.Error as err:
             print("Error Code: ", err)
-            print("DRAWER TEMPERATURE COULD NOT BE RETREIVED!")
+            print("DRAWER TEMPERATURE COULD NOT BE RETRIEVED!")
 
 
-    def ProcessEvent(self, evt):
+    def ProcessEvent(self, evt, noped):
         trigger_time = evt.trigger.time.value
         trigger_id = evt.index.event_id
 
@@ -101,7 +101,7 @@ class CameraMonitoring(dqm_summary):
             self.DrawerTemp_mean = (self.DrawerTemp1_mean + self.DrawerTemp2_mean)/2
         except Exception as err:
             print("Error Code: ", err)
-            print("DRAWER TEMPERATURE COULD NOT BE RETREIVED!")
+            print("DRAWER TEMPERATURE COULD NOT BE RETRIEVED!")
 
 
     def GetResults(self):
@@ -110,7 +110,7 @@ class CameraMonitoring(dqm_summary):
             self.CameraMonitoring_Results_Dict["CAMERA-TEMPERATURE-AVERAGE"] = self.DrawerTemp_mean
         except Exception as err:
             print("Error Code: ", err)
-            print("DRAWER TEMPERATURE COULD NOT BE RETREIVED!")
+            print("DRAWER TEMPERATURE COULD NOT BE RETRIEVED!")
 
         return self.CameraMonitoring_Results_Dict
 
@@ -169,7 +169,7 @@ class CameraMonitoring(dqm_summary):
 
         except Exception as err:
             print("Error Code: ", err)
-            print("DRAWER TEMPERATURE COULD NOT BE RETREIVED!")
+            print("DRAWER TEMPERATURE COULD NOT BE RETRIEVED!")
 
         return  self.ChargeInt_Figures_Dict, self.ChargeInt_Figures_Names_Dict
 

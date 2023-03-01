@@ -33,7 +33,7 @@ class MeanWaveForms_HighLowGain(dqm_summary):
         return None
 
 
-    def ProcessEvent(self, evt):
+    def ProcessEvent(self, evt, noped):
         if evt.trigger.event_type.value == 32: #count peds 
             self.counter_ped += 1
         else:

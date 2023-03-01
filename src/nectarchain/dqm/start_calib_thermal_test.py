@@ -38,7 +38,6 @@ for arg in args.input_paths[1:]:
 PlotFig = args.plot
 noped = args.noped
 print("Plot:", PlotFig)
-print("Noped:", noped)
 
 #NectarPath
 NectarPath = str(os.environ['NECTARDIR'])
@@ -162,8 +161,8 @@ for p in processors:
     p.ConfigureForRun(path, Chan, Samp, reader1)
 
 for i, evt in enumerate(reader):
-	for p in processors:
-		p.ProcessEvent(evt, noped)
+    for p in processors:
+        p.ProcessEvent(evt, noped)
         
 #for the rest of the event files
 for arg in args.input_paths[1:]:
