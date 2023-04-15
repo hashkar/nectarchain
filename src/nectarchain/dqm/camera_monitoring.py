@@ -18,7 +18,7 @@ class CameraMonitoring(dqm_summary):
         self.Samp= Samp
 
 
-        self.camera = CameraGeometry.from_name("NectarCam", 3)
+        self.camera = CameraGeometry.from_name("NectarCam-003").transform_to(EngineeringCameraFrame())#CameraGeometry.from_name("NectarCam", 3)
         self.cmap = 'gnuplot2'
 
         self.subarray = Reader1.subarray
