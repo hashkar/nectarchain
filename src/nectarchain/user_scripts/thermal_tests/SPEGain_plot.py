@@ -8,7 +8,7 @@ from ctapipe.io import read_table
 from nectarchain.data.container import GainContainer
 
 temperature = [5, 0, -5]
-Runs = [3644, 3644, 3644]
+Runs = [3942, 3942, 3942]
 dirname = "/Users/hashkar/Desktop/ashkar_nectar/data/SPEfit/"
 
 
@@ -16,12 +16,19 @@ j = 0
 
 for i in Runs:
     filename = (
-        "/Users/hashkar/Desktop/ashkar_nectar/data/SPEfit/FlatFieldSPEHHVNectarCAM_run%s_maxevents100_LocalPeakWindowSum_window_width_16_window_shift_4.h5"
+        "/Users/hashkar/Desktop/ashkar_nectar/data/SPEfit/FlatFieldSPENominalStdNectarCAM_run%s_maxevents100_LocalPeakWindowSum_window_width_16_window_shift_4.h5"
         % str(i)
     )
 
-    toto = read_table(filename, path="/data/SPEfitContainer")
-    # print(toto)
+    filename = "/Users/hashkar/Desktop/ashkar_nectar/data/SPEfit/FlatFieldSPENominalStdNectarCAM_run3731_maxevents100_GlobalPeakWindowSum_window_width_8_window_shift_4.h5"
+    with h5py.File(filename, "r") as f:
+
+        def print_hdf5_structure(name, obj):
+            print(name)  # Prints the full path of each dataset/group
+
+        f.visititems(print_hdf5_structure)
+    toto = read_table(filename, path="/data/SPEfitContainer_0")
+    print(toto)
 
     data = {
         "is_valid": toto["is_valid"][0],
@@ -34,8 +41,8 @@ for i in Runs:
         "pixels_id": toto["pixels_id"][0],
         # 'luminosity': toto['luminosity']
     }
-
-    SPEGain = np.nanmean(data["high_gain"])
+    # print(data)
+    SPEGain = np.nanmean(data["high_gain_lw"])
     # print(np.min((data["high_gain"])))
 
     # averages = {key: np.mean(values) for key, values in data.items() if isinstance(values, list)}

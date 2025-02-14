@@ -33,29 +33,27 @@ dirac-proxy-init -M -g cta_nectarcam d
 ########################################################################
 #cd ../../../../dqm/
 #pwd
-
 #runs=("3630" "3631" "3629" "3628" "3627" "3626" "3625" "3624" "3622" "3623" "3714" "3713" "3712" "3711" "3710" "3709" "3708" "3707" "3706" "3705" "3764" "3763" "3762" "3761" "3760" "3759" "3758" "3757" "3756" "3755" "3798" "3797" "3796" "3795" "3794" "3793" "3792" "3791" "3790" "3789")
-
-python start_dqm_thermal.py $NECTARDIR/data ../output/charge -r 3793 --method GlobalPeakWindowSum --extractor_kwargs '{"window_width":16,"window_shift":4}'  -n --max-events 100
+#python start_dqm_thermal.py $NECTARDIR/data ../output/charge -r 3793 --method GlobalPeakWindowSum --extractor_kwargs '{"window_width":16,"window_shift":4}'  -n --max-events 100
 
 ########################################################################
 
-
-#GAIN
+#FF
 ########################################################################
-#python no code for the moment -> Guillaume
-#Plots see screenshot
-#Runs: 15:3645   5:3731    0:3750    -5:3784
-#SPE vs photo (twice) 
-#use GlobalPeakWindowSum
-#high gain and low gain
-
-#to perform SPE fit of a run at nominal voltage
-#1 #python gain_SPEfit_computation.py -r 3942 --HHV  --reload_events --method LocalPeakWindowSum --extractor_kwargs '{"window_width":16,"window_shift":4}' --overwrite -v DEBUG -p 45 5
-#2 #python gain_SPEfit_computation.py -r 3936 --reload_events -p 45 56 --max_events 100  --method LocalPeakWindowSum --extractor_kwargs '{"window_width":16,"window_shift":4}' --overwrite -v DEBUG
-#3 #python gain_SPEfit_combined_computation.py -r 3936 --HHV_run_number 3942 -p 45 56 --max_events 100  --method LocalPeakWindowSum --extractor_kwargs '{"window_width":16,"window_shift":4}' --overwrite -v DEBUG --reload_events
+#runs = [3731, 3750, 3784]
+########################################################################
 
 
+#GAIN SPEFit
+########################################################################
+#runs = [3731, 3750, 3784]
+#python gain_SPEfit_computation.py -r 3942 --HHV --reload_events -p 45 56 --max_events 100  --method GlobalPeakWindowSum --extractor_kwargs '{"window_width":8,"window_shift":4}' --overwrite -v DEBUG
+########################################################################
+
+#GAIN Photostatistic
+########################################################################
+#runs = [3731, 3750, 3784] and there associated pedestal and FF runs
+#python gain_PhotoStat_computation.py --FF_run_number 3937 --Ped_run_number 3938 --SPE_run_number 3942 --max_events 100  --method GlobalPeakWindowSum --extractor_kwargs '{"window_width":16,"window_shift":4}' --overwrite -v INFO --reload_events
 ########################################################################
 
 
